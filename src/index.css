@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-scroll {
+  display: flex;
+  animation: scroll 30s linear infinite;
+  width: calc(100% + 300px); /* Adjust the width dynamically */
+}
+
+/* Custom floating shadow */
+.floating-card-shadow {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow to avoid harsh contrast */
+}
+
+/* Glow effect for button hover */
+.hover\:bg-glow:hover {
+  box-shadow: 0px 0px 20px 4px rgba(94, 234, 212, 0.8);
+  transition: box-shadow 0.3s ease-in-out;
+}
