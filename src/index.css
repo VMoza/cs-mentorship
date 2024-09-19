@@ -2,6 +2,87 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Add padding for better visual spacing */
+@media (max-width: 640px) {
+  .px-10 {
+    padding-left: 1.5rem;  /* Adjust for smaller screens */
+    padding-right: 1.5rem;
+  }
+}
+
+/* Fix overflow issues */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.container {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* Ensures navbar and content do not overflow on small screens */
+.navbar {
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Horizontal scrolling for images */
+.flex-overflow {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+/* Adjust testimonial text size on smaller screens */
+@media (max-width: 640px) {
+  .testimonial-text {
+    font-size: 1rem; /* Reduce font size for testimonials */
+  }
+}
+
+.animate-scroll {
+  display: flex;
+  animation: scroll 30s linear infinite;
+  width: calc(100% + 600px); /* Adjusted to accommodate larger logos */
+}
+
+.floating-card-shadow {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Make shadow more pronounced */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.floating-card-shadow:hover {
+  transform: translateY(-10px); /* Make cards float when hovered */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.hover\:bg-glow:hover {
+  box-shadow: 0px 0px 20px 4px rgba(94, 234, 212, 0.8);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.hover\:text-white:hover {
+  color: white !important;
+}
+
+.bg-gradient-to-r:hover {
+  background-image: linear-gradient(to right, #4f46e5, #7c3aed);
+}
+
+/* Padding and width adjustments for the logo section */
+.logo-section img {
+  height: 120px; /* Updated from 60px to 120px */
+  margin: 0 10px;
+}
+
+/* Add scrollability for logos */
+.logo-section {
+  display: flex;
+  justify-content: center;
+  overflow-x: auto;
+  padding: 0 1rem;
+  max-width: 100%;
+}
+
 @keyframes scroll {
   0% {
     transform: translateX(0);
@@ -14,16 +95,5 @@
 .animate-scroll {
   display: flex;
   animation: scroll 30s linear infinite;
-  width: calc(100% + 300px); /* Adjust the width dynamically */
-}
-
-/* Custom floating shadow */
-.floating-card-shadow {
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow to avoid harsh contrast */
-}
-
-/* Glow effect for button hover */
-.hover\:bg-glow:hover {
-  box-shadow: 0px 0px 20px 4px rgba(94, 234, 212, 0.8);
-  transition: box-shadow 0.3s ease-in-out;
+  width: calc(100% + 600px); /* Adjusted width for larger logos */
 }

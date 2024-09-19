@@ -1,10 +1,16 @@
 module.exports = {
-  content: [
-    "./src/**/*.{js,jsx,ts,tsx}", // This tells Tailwind where to look for class names
-    "./public/index.html",
-  ],
+  content: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'], // Adjust paths as necessary
   theme: {
-    extend: {},
+    extend: {
+      // Customizations if any
+    },
   },
-  plugins: [],
+  variants: {
+    extend: {
+      zIndex: ['hover'], // Enable hover variant for zIndex
+    },
+  },
+  plugins: [
+    // Include any plugins if used
+  ],
 };

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Navbar from '../components/Navbar';  // Import the Navbar
 
 const testimonials = [
@@ -15,73 +15,68 @@ const testimonials = [
 ];
 
 const LandingPage = () => {
-
   return (
-    <div>
+    <div className="overflow-hidden"> {/* Prevents horizontal scrolling */}
       <Navbar />
 
       {/* Hero Section */}
-      {/* Hero Section */}
-<header className="bg-gradient-to-r from-blue-600 to-purple-600 text-white text-center py-40">
-  <h1 className="text-6xl font-extrabold mb-6 tracking-tight">Level Up Your CS/DS Recruitment</h1>
-  <p className="text-xl font-light mb-8">Helping CS & Data Science students land their dream jobs.</p>
-  <a href="/sample-questions" className="bg-white text-blue-600 hover:text-blue-800 py-3 px-10 rounded-full font-semibold text-lg shadow-lg hover:shadow-xl transition duration-300 ease-in-out">
-    Explore Sample Questions
-  </a>
-</header>
+      <header className="bg-gradient-to-r from-blue-600 to-purple-600 text-white text-center py-20 md:py-40">
+        <h1 className="text-4xl md:text-6xl font-extrabold mb-6 tracking-tight">Level Up Your CS/DS Recruitment</h1>
+        <p className="text-lg md:text-xl font-light mb-8">Helping CS & Data Science students land their dream jobs.</p>
+        <a href="/sample-questions" className="bg-white text-blue-600 hover:text-blue-800 py-3 px-6 md:px-10 rounded-full font-semibold text-lg shadow-lg hover:shadow-xl transition duration-300 ease-in-out hover:bg-glow">
+          Explore Sample Questions
+        </a>
+      </header>
 
-
-        {/* Why Choose Us Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto text-center max-w-5xl">
-          <h2 className="text-4xl font-bold mb-12">Why Choose Us?</h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="p-6 bg-white rounded-lg shadow-lg">
-              <h3 className="text-xl font-semibold mb-4">Personalized Guidance</h3>
-              <p className="text-gray-600">
-                Get step-by-step mentorship tailored to your unique job-seeking needs.
-              </p>
+      {/* Logos of Tech Companies */}
+      <section className="py-12 bg-white text-center"> {/* Changed bg-gray-100 to bg-white */}
+        <h2 className="text-3xl md:text-4xl font-bold mb-6">Trusted by Engineers at</h2> {/* Changed to h2 and updated font size */}
+        <div className="flex justify-center items-center space-x-8 md:space-x-12 lg:space-x-16 max-w-full overflow-x-auto"> {/* Adjust spacing based on screen size */}
+          {/* Logos */}
+          {['google', 'amazon', 'meta', 'msft'].map((logo, index) => (
+            <div key={index} className="w-16 h-16 md:w-24 md:h-24 lg:w-32 lg:h-32 flex items-center justify-center"> {/* Adjust size based on screen size */}
+              <img
+                src={`/imgs/${logo}-logo.png`}
+                alt={`${logo} company logo`}
+                className="max-h-full max-w-full object-contain transition-transform duration-300 ease-in-out transform hover:scale-125 hover:z-10"
+              />
             </div>
-            <div className="p-6 bg-white rounded-lg shadow-lg">
-              <h3 className="text-xl font-semibold mb-4">Industry Insights</h3>
-              <p className="text-gray-600">
-                Learn what top tech companies are looking for from experts in the field.
-              </p>
-            </div>
-            <div className="p-6 bg-white rounded-lg shadow-lg">
-              <h3 className="text-xl font-semibold mb-4">Community Support</h3>
-              <p className="text-gray-600">
-                Join a community of like-minded individuals to help each other succeed.
-              </p>
-            </div>
-          </div>
+          ))}
         </div>
       </section>
 
-      {/* How It Works Section */}
-      <section className="py-16 bg-white">
+
+      {/* Separator Line */}
+      <hr className="border-t border-black mx-4" /> {/* Thin black line with horizontal margins */}
+
+      {/* Why Choose Us Section */}
+      <section className="py-16 bg-white"> {/* Changed bg-gray-50 to bg-white */}
         <div className="container mx-auto text-center max-w-5xl">
-          <h2 className="text-4xl font-bold mb-12">How It Works</h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="p-6 bg-gray-100 rounded-lg shadow-md">
-              <h3 className="text-xl font-semibold mb-4">Step 1: Job Tracker</h3>
-              <p>Keep track of all your applications using our tailored job tracker.</p>
+          <h2 className="text-3xl md:text-4xl font-bold mb-12">Why Choose Us?</h2> {/* Changed to h2 and updated font size */}
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="card group p-6 bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg shadow-lg hover:shadow-xl transform transition-transform hover:scale-105 hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500">
+              <h3 className="text-xl font-semibold mb-4 group-hover:text-white">
+                Personalized Guidance
+              </h3>
+              <p className="text-gray-600 group-hover:text-white">
+                Get step-by-step mentorship tailored to your unique job-seeking needs.
+              </p>
             </div>
-            <div className="p-6 bg-gray-100 rounded-lg shadow-md">
-              <h3 className="text-xl font-semibold mb-4">Step 2: LinkedIn Referrals</h3>
-              <p>Leverage your network to get high-quality referrals.</p>
+            <div className="card group p-6 bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg shadow-lg hover:shadow-xl transform transition-transform hover:scale-105 hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500">
+              <h3 className="text-xl font-semibold mb-4 group-hover:text-white">
+                Industry Insights
+              </h3>
+              <p className="text-gray-600 group-hover:text-white">
+                Learn what top tech companies are looking for from experts in the field.
+              </p>
             </div>
-            <div className="p-6 bg-gray-100 rounded-lg shadow-md">
-              <h3 className="text-xl font-semibold mb-4">Step 3: Resume Building</h3>
-              <p>Craft a resume that stands out to recruiters and hiring managers.</p>
-            </div>
-            <div className="p-6 bg-gray-100 rounded-lg shadow-md">
-              <h3 className="text-xl font-semibold mb-4">Step 4: Mass Applying</h3>
-              <p>Learn strategies to apply to multiple companies without burning out.</p>
-            </div>
-            <div className="p-6 bg-gray-100 rounded-lg shadow-md md:col-span-2">
-              <h3 className="text-xl font-semibold mb-4">Step 5: Interview Prep</h3>
-              <p>Get access to system design questions, coding concepts, and mock interviews to ace the technical rounds.</p>
+            <div className="card group p-6 bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg shadow-lg hover:shadow-xl transform transition-transform hover:scale-105 hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500">
+              <h3 className="text-xl font-semibold mb-4 group-hover:text-white">
+                Community Support
+              </h3>
+              <p className="text-gray-600 group-hover:text-white">
+                Join a community of like-minded individuals to help each other succeed.
+              </p>
             </div>
           </div>
         </div>
@@ -96,7 +91,7 @@ const LandingPage = () => {
           </p>
           <a
             href="#"
-            className="bg-white text-purple-600 hover:text-purple-800 py-3 px-10 rounded-full font-semibold text-lg shadow-lg hover:shadow-xl transition duration-300 ease-in-out"
+            className="bg-white text-purple-600 hover:text-purple-800 py-3 px-10 rounded-full font-semibold text-lg shadow-lg hover:shadow-xl transition duration-300 ease-in-out hover:bg-glow"
           >
             Join Now
           </a>
@@ -104,23 +99,23 @@ const LandingPage = () => {
       </section>
 
       {/* Scrolling Testimonials Section */}
-      <section className="py-12 bg-white text-center">
-  <h2 className="text-3xl font-bold mb-6">What Our Users Say</h2>
-  <div className="overflow-hidden relative">
-    <div className="flex space-x-4 animate-scroll pl-6"> {/* Adjusted space-x to 4 for tighter spacing */}
-      {testimonials.concat(testimonials).map((testimonial, index) => (
-        <div 
-          key={index}
-          className="min-w-[300px] bg-white p-6 shadow-xl rounded-lg transform transition-transform hover:-translate-y-1 hover:shadow-2xl mb-6"
-        >
-          <p className="italic mb-4">"{testimonial.text}"</p>
-          <p className="mt-4 font-bold">{testimonial.author}</p>
+      <section className="py-16 bg-white text-center"> {/* Increased py-12 to py-16 */}
+        <h2 className="text-3xl font-bold mb-6">What Our Users Say</h2>
+        <div className="overflow-x-hidden relative"> {/* Ensure horizontal overflow is hidden but vertical is visible */}
+          <div className="flex space-x-4 animate-scroll pl-6 pb-8">
+            {testimonials.concat(testimonials).map((testimonial, index) => (
+              <div 
+                key={index}
+                className="min-w-[300px] bg-white p-6 shadow-xl rounded-lg transform transition-transform hover:-translate-y-1 hover:shadow-2xl mb-6"
+                style={{ paddingTop: '20px', paddingBottom: '20px', marginTop: '10px', marginBottom: '10px', height: 'auto' }} // Ensure auto height
+              >
+                <p className="italic mb-4">"{testimonial.text}"</p>
+                <p className="mt-4 font-bold">{testimonial.author}</p>
+              </div>
+            ))}
+          </div>
         </div>
-      ))}
-    </div>
-  </div>
-</section>
-
+      </section>
     </div>
   );
 };

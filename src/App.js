@@ -7,6 +7,10 @@ import ConsultationsPage from './pages/ConsultationsPage'; // Import the new pag
 import React from 'react';
 import ConsultationSuccessPage from './pages/ConsultationSuccessPage';
 import ConsultationCancelPage from './pages/ConsultationCancelPage';
+import ResourcesPage from './pages/ResourcesPage';  // Import the new page
+
+// Inside your routes:
+
 
 
 function App() {
@@ -18,6 +22,7 @@ function App() {
         <Route path="/loginsignup" element={<Login />} />
         <Route path="/subscribe" element={<SubscriptionPage />} />
         <Route path="/consultations" element={<ConsultationsPage />} /> {/* New route */}
+        <Route path="/resources" element={<ResourcesPage />} />
 
         {/* Sample Questions Route is now open */}
         <Route path="/sample-questions" element={<SampleQuestionsPage />} />

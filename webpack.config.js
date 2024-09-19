@@ -1,12 +1,13 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin'); // Import the plugin
 
 module.exports = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
-    publicPath: '/', // Add this line
+    publicPath: '/', // Ensure publicPath is set correctly
   },
   module: {
     rules: [
@@ -18,18 +19,30 @@ module.exports = {
         },
       },
       {
-        test: /\.css$/, // Add this rule to handle CSS files
+        test: /\.css$/, // Handle CSS files
         use: [
           'style-loader',
           'css-loader',
-          'postcss-loader', // This will process Tailwind's custom directives
+          'postcss-loader', // Processes Tailwind's custom directives
         ],
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg)$/i,
+        type: 'asset/resource',
+        generator: {
+          filename: 'imgs/[name][hash][ext][query]'
+        }
       },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html',
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: 'public/imgs', to: 'imgs' }, // Copies public/imgs to dist/imgs
+      ],
     }),
   ],
   devServer: {
