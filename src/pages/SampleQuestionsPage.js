@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';  
-import sampleQuestions from '../pages/questionsData';  // Import the questions from the new file
+import sampleQuestions from './QuestionsData';
 
 const SampleQuestionsPage = () => {
   const [selectedQuestionIndex, setSelectedQuestionIndex] = useState(0);
