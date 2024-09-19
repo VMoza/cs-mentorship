@@ -1,0 +1,20 @@
+{
+  "name": "cs-mentor-worker",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "deploy": "wrangler deploy",
+    "dev": "wrangler dev",
+    "start": "wrangler dev",
+    "test": "vitest",
+    "publish": "wrangler publish"
+  },
+  "devDependencies": {
+    "@cloudflare/vitest-pool-workers": "^0.5.2",
+    "wrangler": "^3.60.3",
+    "vitest": "2.0.5",
+    "itty-router": "^2.4.9", 
+    "jose": "^3.11.4", 
+    "nanoid": "^3.3.4"
+  }
+}

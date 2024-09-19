@@ -12,12 +12,15 @@ const SampleQuestionsPage = () => {
   const navigate = useNavigate();  
 
   // Check if the user is logged in when the component mounts
-  // Check if the user is logged in when the component mounts
   const checkAuthStatus = async () => {
     try {
-      const response = await fetch('http://localhost:3001/check-auth', {
+      const token = localStorage.getItem('token'); // Get the JWT token from localStorage
+  
+      const response = await fetch('https://cs-mentor-worker.<your-subdomain>.workers.dev/check-auth', {
         method: 'GET',
-        credentials: 'include',  // Ensure cookies are sent with the request
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        },
       });
   
       if (!response.ok) {
@@ -28,16 +31,17 @@ const SampleQuestionsPage = () => {
   
       if (data.isAuthenticated) {
         console.log('User is logged in:', data.user);
-        setIsAuthenticated(true);  // Set your authentication state here
+        setIsAuthenticated(true); // Set your authentication state here
       } else {
         console.log('User is not logged in');
-        setIsAuthenticated(false);  // Set the state to unauthenticated
+        setIsAuthenticated(false); // Set the state to unauthenticated
       }
     } catch (error) {
       console.error('Failed to fetch:', error);
-      setIsAuthenticated(false);  // Ensure this gets set on error
+      setIsAuthenticated(false); // Ensure this gets set on error
     }
-  };  
+  };
+  
 
 useEffect(() => {
   checkAuthStatus();

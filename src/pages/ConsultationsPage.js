@@ -4,25 +4,26 @@ import React from 'react';
 import Navbar from '../components/Navbar';
 
 const ConsultationsPage = () => {
-  const handleBookNow = async (type) => {
-    try {
-      const response = await fetch('http://localhost:3001/create-checkout-session', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ consultationType: type }),
-      });
-
-      const data = await response.json();
-
-      if (data.url) {
-        window.location.href = data.url; // Redirect to Stripe Checkout
-      } else {
-        console.error('Error: ', data.error);
-      }
-    } catch (error) {
-      console.error('Error:', error);
-    }
-  };
+    const handleBookNow = async (type) => {
+        try {
+          const response = await fetch('https://cs-mentor-worker.<your-subdomain>.workers.dev/create-checkout-session', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ consultationType: type }),
+          });
+      
+          const data = await response.json();
+      
+          if (data.url) {
+            window.location.href = data.url; // Redirect to Stripe Checkout
+          } else {
+            console.error('Error: ', data.error);
+          }
+        } catch (error) {
+          console.error('Error:', error);
+        }
+      };
+      
 
   return (
     <div className="min-h-screen bg-gray-100">
