@@ -64,10 +64,6 @@ html, body {
   color: white !important;
 }
 
-.bg-gradient-to-r:hover {
-  background-image: linear-gradient(to right, #4f46e5, #7c3aed);
-}
-
 /* Padding and width adjustments for the logo section */
 .logo-section img {
   height: 120px; /* Updated from 60px to 120px */

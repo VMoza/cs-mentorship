@@ -20,7 +20,7 @@ const LandingPage = () => {
       <Navbar />
 
       {/* Hero Section */}
-      <header className="bg-gradient-to-r from-blue-600 to-purple-600 text-white text-center py-20 md:py-40">
+      <header className="bg-gradient-to-r from-blue-600 to-purple-600 text-white text-center py-20 md:py-40 hover:none">
         <h1 className="text-4xl md:text-6xl font-extrabold mb-6 tracking-tight">Level Up Your CS/DS Recruitment</h1>
         <p className="text-lg md:text-xl font-light mb-8">Helping CS & Data Science students land their dream jobs.</p>
         <a href="/sample-questions" className="bg-white text-blue-600 hover:text-blue-800 py-3 px-6 md:px-10 rounded-full font-semibold text-lg shadow-lg hover:shadow-xl transition duration-300 ease-in-out hover:bg-glow">
